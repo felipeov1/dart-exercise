@@ -35,3 +35,27 @@ String readString(String prompt) {
   String? input = stdin.readLineSync();
   return input ?? "";
 }
+
+DateTime readDate(String prompt) {
+  while (true) {
+    String input = readString("$prompt (DD/MM/YYYY): ");
+    
+    List<String> parts = input.split('/');
+    if (parts.length == 3) {
+      int? day = int.tryParse(parts[0]);
+      int? month = int.tryParse(parts[1]);
+      int? year = int.tryParse(parts[2]);
+      
+      if (day != null && month != null && year != null) {
+        try {
+          DateTime date = DateTime(year, month, day);
+          return date;
+        } catch (e) {
+          print("Invalid date.");
+        }
+      }
+    }
+    print("Use DD/MM/YYYY.");
+  }
+}
+
