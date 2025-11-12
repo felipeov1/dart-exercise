@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import '../reads.dart';
 
 void main() {

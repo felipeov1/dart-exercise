@@ -1,11 +1,11 @@
 import 'dart:math';
 
-List<int> randomNumbers() {
+List<int> randomNumbers(qnty) {
   List<int> numbers = [];
 
   Random random = new Random();
 
-  for (int i = 0; i < 7; i++) {
+  for (int i = 0; i < qnty; i++) {
     int randomNumber = random.nextInt(100);
     numbers.add(randomNumber);
   }
@@ -14,7 +14,7 @@ List<int> randomNumbers() {
 }
 
 void main() {
-  List<int> randomNums = randomNumbers();
+  List<int> randomNums = randomNumbers(7);
   List<int> multipleTowThree = [];
   List<int> multipleTow = [];
   List<int> multipleThree = [];
