@@ -1,6 +1,6 @@
 import '../reads.dart';
-import 'dart:convert';
-import 'dart:io';
+import './helpers/saveFile.dart';
+import './helpers/loadFile.dart';
 
 const String customersFile = 'exercise/chapter-11/files/customers.json';
 const String paymentsFile = 'exercise/chapter-11/files/payments.json';
@@ -37,24 +37,4 @@ void main() {
   print('$paymentsDeleted related payments removed from $paymentsFile.');
 
   print('Deletion process complete.');
-}
-
-List<dynamic> loadFile(String fileName) {
-  File file = File(fileName);
-
-  if (file.existsSync()) {
-    String jsonText = file.readAsStringSync();
-    if (jsonText.isNotEmpty) {
-      return jsonDecode(jsonText);
-    }
-  } else {
-    print('File $fileName not found. Creating it.');
-  }
-  return [];
-}
-
-void saveFile(String fileName, List<dynamic> data) {
-  JsonEncoder encoder = JsonEncoder.withIndent('  ');
-  String jsonText = encoder.convert(data);
-  File(fileName).writeAsStringSync(jsonText);
 }

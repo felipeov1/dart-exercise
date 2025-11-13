@@ -1,6 +1,7 @@
 import '../reads.dart';
 import 'dart:io';
 import 'dart:convert';
+import './helpers/saveFile.dart';
 
 const String customersFile = 'exercise/chapter-11/files/customers.json';
 
@@ -38,9 +39,3 @@ List<dynamic> loadCustomers() {
   return [];
 }
 
-void saveCustomers(List<dynamic> customers) {
-  JsonEncoder encoder = JsonEncoder.withIndent('  ');
-  String jsonText = encoder.convert(customers);
-
-  File(customersFile).writeAsStringSync(jsonText);
-}

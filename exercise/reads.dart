@@ -39,13 +39,13 @@ String readString(String prompt) {
 DateTime readDate(String prompt) {
   while (true) {
     String input = readString("$prompt (DD/MM/YYYY): ");
-    
+
     List<String> parts = input.split('/');
     if (parts.length == 3) {
       int? day = int.tryParse(parts[0]);
       int? month = int.tryParse(parts[1]);
       int? year = int.tryParse(parts[2]);
-      
+
       if (day != null && month != null && year != null) {
         try {
           DateTime date = DateTime(year, month, day);
@@ -59,3 +59,9 @@ DateTime readDate(String prompt) {
   }
 }
 
+String formatDate(DateTime date) {
+  String day = date.day.toString().padLeft(2, '0');
+  String month = date.month.toString().padLeft(2, '0');
+  String year = date.year.toString();
+  return "$day/$month/$year";
+}
