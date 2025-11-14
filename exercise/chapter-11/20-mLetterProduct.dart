@@ -10,20 +10,15 @@ void main() {
     return;
   }
 
-  bool found = false;
   print('Products with name starting with "M":');
 
   for (var product in allProducts) {
     String description = product['descricao'];
     if (description.toLowerCase().startsWith('m')) {
       print(
-          'Code: ${product['codigo']}, Desc: ${product['descricao']}, Price: ${product['preco']}');
-      found = true;
+        'Code: ${product['codigo']}, Desc: ${product['descricao']}, Price: ${product['preco']}',
+      );
+      break;
     }
   }
-
- 
 }
-
-
-
