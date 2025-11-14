@@ -1,5 +1,5 @@
 import '../../practices/reads.dart';
-import '../chapter-7-do-more/5-matrix12x4.dart';
+import '../chapter-7/5-matrix12x4.dart';
 
 void showHighestTemperature(List<double> avgTemp) {
   double highestTemp = avgTemp[0];
